@@ -2,4 +2,49 @@
 鱼书项目的仿写
 
 ## tag 标注
-0.1 完成 search_book 和 book_detail 页面
+### 0.1 完成 search_book 和 book_detail 页面  
+本次 0.1 tag 标注完成的功能并未采用 数据库
+1. search_book 页面相关信息  
+   - 示例url  
+   http://localhost:5000/book/search?q=%E9%87%91%E5%BA%B8   (q=金庸，url进行了encode)
+   - 示例结果  
+   ![book_search_结果](./README_static_files/book_search.png)
+   - 补充信息  
+     - 每页结果默认采用 page = 15，输出15个结果
+     - 数据的路径为 数据从spider中得到，然后经过viewmodel层BookCollection处理，输入到template模板中 
+
+2. book_detail 页面相关信息  
+   - 示例url  
+   http://localhost:5000/book/9787108006721/detail  
+   - 示例结果  
+   ![book_detail_结果](./README_static_files/book_detail.png)
+   - 补充信息
+     - 数据的路径为 数据从spider中得到，然后经过viewmodel层BookViewModel处理，输入到template模板中 
+
+
+### 0.2
+#### 0.2.1 完成用户系统中的用户 登录、登出、注册 三个功能
+涉及到 User 模型，涉及到 flask-SQLAlchemy 插件的使用  
+涉及到 登录、登出问题，涉及到 flask-login 插件的使用  
+
+涉及到表单提交的功能都有 POST 请求
+1. 登录页面  
+   GET  
+   POST
+   - 示例url  
+   http://127.0.0.1:5000/login
+   - 示例结果
+   ![auth_loginl_结果](./README_static_files/auth_login.png)
+   
+2. 登出
+   必须用户登录才能使用登出功能
+   - 示例url  
+   http://127.0.0.1:5000/logout
+3. 注册页面  
+   GET  
+   POST
+   - 示例url  
+   http://127.0.0.1:5000/register
+   - 示例结果
+   ![auth_register_结果](./README_static_files/auth_register.png)
+

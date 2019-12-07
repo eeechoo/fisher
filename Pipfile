@@ -11,6 +11,8 @@ requests = "*"
 wtforms = "*"
 flask-sqlalchemy = "*"
 cymysql = "*"
+flask-login = "*"
+flask-share = "*"
 
 [requires]
 python_version = "3.8"
