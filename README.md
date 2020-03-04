@@ -24,8 +24,9 @@
 
 ### 0.2
 #### 0.2.1 完成用户系统中的用户 登录、登出、注册 三个功能
-涉及到 User 模型，涉及到 flask-SQLAlchemy 插件的使用  
+涉及到 User 模型，涉及到 flask-SQLAlchemy 插件的使用（值得注意的是该插件由 flask 官方---pallets 维护，质量可靠）
 涉及到 登录、登出问题，涉及到 flask-login 插件的使用  
+涉及到 表单验证的工作 需要 wtforms 插件
 
 涉及到表单提交的功能都有 POST 请求
 1. 登录页面  
@@ -48,3 +49,7 @@
    - 示例结果
    ![auth_register_结果](./README_static_files/auth_register.png)
 
+
+4. 忘记密码
+   需要用户提交邮箱，然后向用户提供的邮箱发送一封邮件。  
+   忘记密码功能涉及到 flask_mail 插件
