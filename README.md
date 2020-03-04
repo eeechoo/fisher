@@ -2,6 +2,7 @@
 鱼书项目的仿写
 
 ## tag 标注
+你可以根据 tag 看到项目的发展情况
 ### 0.1 完成 search_book 和 book_detail 页面  
 本次 0.1 tag 标注完成的功能并未采用 数据库
 1. search_book 页面相关信息  
