@@ -49,7 +49,7 @@
    - 示例结果
    ![auth_register_结果](./README_static_files/auth_register.png)
 
-
-4. 忘记密码
+#### 0.2.2 忘记密码
+1. 忘记密码
    需要用户提交邮箱，然后向用户提供的邮箱发送一封邮件。  
    忘记密码功能涉及到 flask_mail 插件
