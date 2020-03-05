@@ -1,6 +1,10 @@
-from . import web
+from flask import url_for, flash
+from flask_login import current_user
+from werkzeug.utils import redirect
 
-__author__ = '七月'
+from . import web
+from .. import db
+from ..models.wish import Wish
 
 
 @web.route('/my/wish')
@@ -10,7 +14,15 @@ def my_wish():
 
 @web.route('/wish/book/<isbn>')
 def save_to_wish(isbn):
-    pass
+    if current_user.can_save_to_list(isbn):
+        with db.auto_commit():
+            wish = Wish()
+            wish.uid = current_user.id
+            wish.isbn = isbn
+            db.session.add(wish)
+    else:
+        flash('这本书已添加至你的赠送清单或已存在于你的心愿清单，请不要重复添加')
+    return redirect(url_for('web.book_detail', isbn=isbn))
 
 
 @web.route('/satisfy/wish/<int:wid>')

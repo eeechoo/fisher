@@ -1,10 +1,13 @@
 from flask import request, flash, render_template
+from flask_login import current_user
 
 from app.forms.book import SearchForm
 from app.helpers.libs.helper import is_isbn_or_key
 from app.helpers.spider.yushu_book import YuShuBook
 from app.viewmodels.book import BookCollection, BookViewModel
 from . import web
+from ..models.gift import Gift
+from ..models.wish import Wish
 
 
 @web.route('/book/search')
@@ -44,4 +47,16 @@ def book_detail(isbn):
 
     book = BookViewModel(yushu_book.first)
 
-    return render_template('book_detail.html', book=book)
+    has_in_gifts = False
+    has_in_wishes = False
+    if current_user.is_authenticated:
+        # 如果未登录，current_user将是一个匿名用户对象
+        if Gift.query.filter_by(uid=current_user.id, isbn=isbn,
+                                launched=False).first():
+            has_in_gifts = True
+        if Wish.query.filter_by(uid=current_user.id, isbn=isbn,
+                                launched=False).first():
+            has_in_wishes = True
+
+    return render_template('book_detail.html', book=book,
+                           has_in_gifts=has_in_gifts, has_in_wishes=has_in_wishes)

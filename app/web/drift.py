@@ -1,7 +1,5 @@
 from . import web
 
-__author__ = '七月'
-
 
 @web.route('/drift/<int:gid>', methods=['GET', 'POST'])
 def send_drift(gid):

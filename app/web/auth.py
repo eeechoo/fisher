@@ -5,9 +5,6 @@ from app.forms.auth import RegisterForm, LoginForm, EmailForm, ResetPasswordForm
 from app.models.base import db
 from app.models.user import User
 from . import web
-
-__author__ = '七月'
-
 from ..helpers.libs.email import send_email
 
 
