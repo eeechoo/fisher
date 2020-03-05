@@ -8,6 +8,7 @@ from app.viewmodels.book import BookCollection, BookViewModel
 from . import web
 from ..models.gift import Gift
 from ..models.wish import Wish
+from ..viewmodels.trade import TradeInfo
 
 
 @web.route('/book/search')
@@ -58,7 +59,11 @@ def book_detail(isbn):
                                 launched=False).first():
             has_in_wishes = True
 
-    # 默认你
+    # 显示关于本书的相关 gift 和 wish，并根据书处于当前用户 gift 列表 或者 wish 列表，进行显示
+    # 默认显示所有想要赠送这本书的用户信息
+    wishes = TradeInfo(Wish.query.filter_by(isbn=isbn, launched=False).all())  # 这里从 model 中拿到数据，然后到 viewmodel 中进行裁剪
+    gifts = TradeInfo(Gift.query.filter_by(isbn=isbn, launched=False).all())
 
     return render_template('book_detail.html', book=book,
-                           has_in_gifts=has_in_gifts, has_in_wishes=has_in_wishes)
+                           has_in_gifts=has_in_gifts, has_in_wishes=has_in_wishes,
+                           wishes=wishes, gifts=gifts)

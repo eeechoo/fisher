@@ -85,46 +85,46 @@
             <p class="description-font">{{ book.summary }}</p>
         </div>
     </div>
-{#    {% if gifts.total!= 0 and not has_in_gifts %}#}
-{#        <div style="margin-top:30px;" class="row">#}
-{#            <div class="col-md-3"><span class="description-title">向他们请求此书</span></div>#}
-{#        </div>#}
-{#        <hr style="margin-top:5px;"/>#}
-{#        {% for gift in gifts.trades %}#}
-{#            <div style="margin-top:30px;" class="row">#}
-{#                <div class="col-md-1">#}
-{#                    {{ gift.user_name }}#}
-{#                </div>#}
-{#                <div class="col-md-2 description-font">#}
-{#                    上传于{{ gift.time }}#}
-{#                </div>#}
-{#                <div class="col-md-2">#}
-{#                    <a class="btn-normal"#}
-{#                       href="{{ url_for('web.send_drift', gid=gift.id) }}">向他请求此书</a>#}
-{#                </div>#}
-{#            </div>#}
-{#        {% endfor %}#}
-{#    {% endif %}#}
-{#    {% if wishes.total != 0 and has_in_gifts %}#}
-{#        <div style="margin-top:30px;" class="row">#}
-{#            <div class="col-md-3"><span class="description-title">向他们赠送此书</span></div>#}
-{#        </div>#}
-{#        <hr style="margin-top:5px;"/>#}
-{#        {% for wish in wishes.trades %}#}
-{#            <div style="margin-top:30px;" class="row">#}
-{#                <div class="col-md-1">#}
-{#                    {{ wish.user_name }}#}
-{#                </div>#}
-{#                <div class="col-md-2 description-font">#}
-{#                    上传于{{ wish.time }}#}
-{#                </div>#}
-{#                <div class="col-md-2">#}
-{#                    <a class="btn-normal"#}
-{#                       href="{{ url_for('web.satisfy_wish', wid=wish.id, isbn=[book.isbn]) }}">向他赠送此书</a>#}
-{#                </div>#}
-{#            </div>#}
-{#        {% endfor %}#}
-{#    {% endif %}#}
+    {% if gifts.total!= 0 and not has_in_gifts %}
+        <div style="margin-top:30px;" class="row">
+            <div class="col-md-3"><span class="description-title">向他们请求此书</span></div>
+        </div>
+        <hr style="margin-top:5px;"/>
+        {% for gift in gifts.trades %}
+            <div style="margin-top:30px;" class="row">
+                <div class="col-md-1">
+                    {{ gift.user_name }}
+                </div>
+                <div class="col-md-2 description-font">
+                    上传于{{ gift.time }}
+                </div>
+                <div class="col-md-2">
+                    <a class="btn-normal"
+                       href="{{ url_for('web.send_drift', gid=gift.id) }}">向他请求此书</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if wishes.total != 0 and has_in_gifts %}
+        <div style="margin-top:30px;" class="row">
+            <div class="col-md-3"><span class="description-title">向他们赠送此书</span></div>
+        </div>
+        <hr style="margin-top:5px;"/>
+        {% for wish in wishes.trades %}
+            <div style="margin-top:30px;" class="row">
+                <div class="col-md-1">
+                    {{ wish.user_name }}
+                </div>
+                <div class="col-md-2 description-font">
+                    上传于{{ wish.time }}
+                </div>
+                <div class="col-md-2">
+                    <a class="btn-normal"
+                       href="{{ url_for('web.satisfy_wish', wid=wish.id, isbn=[book.isbn]) }}">向他赠送此书</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
     <div class="remodal" data-remodal-id="modal" role="dialog"
          aria-labelledby="modal1Title" aria-describedby="modal1Desc"
          data-remodal-options="closeOnOutsideClick: false">

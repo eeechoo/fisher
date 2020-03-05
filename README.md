@@ -63,3 +63,16 @@
 ## 0.3
 ### 0.3.1 gift wish 模型
 实现了 save to gift 和 save to wish 功能
+
+### 0.3.2 在 book_detail 中显示所有持有本书的人 和 所有想要本书的人
+  
+当用户未 登录， 默认显示所有持有此书，想赠送此书的人
+当用户已登录，此书既不是 gift，也不是wish，默认显示 把此书作为gift 的用户
+当用户为 赠送此书人，为该用户显示 所有wish 此书的人
+当用户为 wish 此书人，为该用户显示 所有把此书作为 gift 的用户
+
+注册三个账户 xiaoyuer@gmail.com huawuque@gmail.com jiangyuyan@gmail.com  
+页面效果如下图所示：
+![auth_register_结果](./README_static_files/book_detail_with_wishes.png)
+
+###
