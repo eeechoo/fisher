@@ -11,6 +11,3 @@ def index():
     return render_template('index.html', recent=[])
 
 
-@web.route('/personal')
-def personal_center():
-    pass
