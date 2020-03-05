@@ -13,6 +13,7 @@ def my_gifts():
 
 
 @web.route('/gifts/book/<isbn>')
+@login_required
 def save_to_gifts(isbn):
     if current_user.can_save_to_list(isbn):
         # 既不在赠送清单，也不在心愿清单才能添加

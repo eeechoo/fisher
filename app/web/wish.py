@@ -1,5 +1,5 @@
 from flask import url_for, flash
-from flask_login import current_user
+from flask_login import current_user, login_required
 from werkzeug.utils import redirect
 
 from . import web
@@ -13,6 +13,7 @@ def my_wish():
 
 
 @web.route('/wish/book/<isbn>')
+@login_required
 def save_to_wish(isbn):
     if current_user.can_save_to_list(isbn):
         with db.auto_commit():

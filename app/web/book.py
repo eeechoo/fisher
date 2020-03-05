@@ -58,5 +58,7 @@ def book_detail(isbn):
                                 launched=False).first():
             has_in_wishes = True
 
+    # 默认你
+
     return render_template('book_detail.html', book=book,
                            has_in_gifts=has_in_gifts, has_in_wishes=has_in_wishes)
