@@ -1,15 +1,17 @@
-from flask import current_app, flash, redirect, url_for
+from flask import current_app, flash, redirect, url_for, render_template
 from flask_login import login_required, current_user
 
 from . import web
 from .. import db
 from ..models.gift import Gift
+from ..viewmodels.gift import MyGifts
 
 
 @web.route('/my/gifts')
 @login_required
 def my_gifts():
-    pass
+    view_model = MyGifts(current_user.id)
+    return render_template('my_gifts.html', gifts=view_model.gifts)
 
 
 @web.route('/gifts/book/<isbn>')

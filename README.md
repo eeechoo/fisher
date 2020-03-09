@@ -75,4 +75,6 @@
 页面效果如下图所示：
 ![auth_register_结果](./README_static_files/book_detail_with_wishes.png)
 
-###
+### 0.3.3 
+1. recent gift 作为 index 页面
+2. 个人用户的  礼物清单  以及    心愿清单

@@ -1,15 +1,18 @@
-from flask import url_for, flash
+from flask import url_for, flash, render_template
 from flask_login import current_user, login_required
 from werkzeug.utils import redirect
 
 from . import web
 from .. import db
 from ..models.wish import Wish
+from ..viewmodels.wish import MyWishes
 
 
 @web.route('/my/wish')
+@login_required
 def my_wish():
-    pass
+    view_model = MyWishes(current_user.id)
+    return render_template('my_wish.html', wishes=view_model.wishes)
 
 
 @web.route('/wish/book/<isbn>')
