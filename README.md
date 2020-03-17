@@ -78,3 +78,15 @@
 ### 0.3.3 
 1. recent gift 作为 index 页面
 2. 个人用户的  礼物清单  以及    心愿清单
+
+
+
+## 4 鱼漂交易模型的建立
+目前我们已经根据业务 构建了 User、Gift、Wish 这三个数据库  
+下面我们考虑一个场景：用户A 向 用户B 请求某一本书  
+根据产品需求prd，我们先设计出数据库，最后的工作就是根据需求描写业务逻辑操作数据库即可。  
+设计这样的字段作为草图：  
+
+| Requester<br>who want the book 	| Responser<br>who have the book 	| the information of the book 	| transaction status                                                                                                                                                            	|
+|--------------------------------	|--------------------------------	|-----------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| User A id                      	| User B id                      	| Book isbn                   	| waiting: A lanch the request and wait for B to reponse<br>sucess: B accept the request and send the book to B<br>reject: B refuse the request<br>redraw: A redraw the request 	|
