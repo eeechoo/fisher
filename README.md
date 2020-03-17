@@ -89,4 +89,4 @@
 
 | Requester<br>who want the book 	| Responser<br>who have the book 	| the information of the book 	| transaction status                                                                                                                                                            	|
 |--------------------------------	|--------------------------------	|-----------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| User A id                      	| User B id                      	| Book isbn                   	| waiting: A lanch the request and wait for B to reponse<br>sucess: B accept the request and send the book to B<br>reject: B refuse the request<br>redraw: A redraw the request 	|
+| User A id                      	| User B id                      	| Book isbn                   	| Waiting: A lanch the request and wait for B to reponse<br>Sucess: B accept the request and send the book to B<br>Reject: B refuse the request<br>Redraw: A redraw the request 	|
