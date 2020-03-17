@@ -82,7 +82,7 @@
 
 
 ## 4 鱼漂交易模型的建立
-目前我们已经根据业务 构建了 User、Gift、Wish 这三个数据库  
+目前我们已经根据业务 构建了 User、Gift、Wish 这三个 table  
 下面我们考虑一个场景：用户A 向 用户B 请求某一本书  
 根据产品需求prd，我们先设计出数据库，最后的工作就是根据需求描写业务逻辑操作数据库即可。  
 设计这样的字段作为草图：  
@@ -90,3 +90,11 @@
 | Requester<br>who want the book 	| Responser<br>who have the book 	| the information of the book 	| transaction status                                                                                                                                                            	|
 |--------------------------------	|--------------------------------	|-----------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | User A id                      	| User B id                      	| Book isbn                   	| Waiting: A lanch the request and wait for B to reponse<br>Sucess: B accept the request and send the book to B<br>Reject: B refuse the request<br>Redraw: A redraw the request 	|
+
+梳理状态转移图能够帮助我们更好的理解 产品需求与数据库之间的关系：  
+![状态转移图](./README_static_files/状态转移图.PNG)  
+Now things get easy!  
+All we need to do is just writing the view functions to implement the transition between states!
+
+1. we are going to write the view function which help User A ask the book from User B
+ 
