@@ -3,6 +3,17 @@
 部署在 http://47.56.251.124:5000/ 上，欢迎品尝
 
 ### 后记
+- 部署的时候涉及到了 pipenv lock、pipenv install 这两个命令，以后有机会仔细研究下 pipenv 的工作流问题（即项目完成后需要lock依赖和项目部署前需要安装依赖）
+
+- 部署的时候采用了 docker mysql image，一个 docker container 占据了我可怜1G内存的一半，真吃性能！！  
+  - 启动mysql 服务使用了这条命令 ```docker run --name some-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag```
+  - 配置采用了这条命令 ```SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:my-secret-pw@localhost:3306/fisher'```
+  - 有时间研究下 docker yaml 文件怎么写
+
+
+
+
+### 后记
 1. 这个项目还是挺不错的，通过这个项目，对于MVC这种分层模型有了清晰的认识  
 2. flask、SQLAlchemy这些目前只能有浅显的认知，要想有更加深入的认识有两个途径
    - 学习相关源码 flask、werkzeug源码
