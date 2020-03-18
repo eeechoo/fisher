@@ -96,5 +96,14 @@
 Now things get easy!  
 All we need to do is just writing the view functions to implement the transition between states!
 
-1. we are going to write the view function which help User A ask the book from User B
- 
+1. we are going to write the view function which help User A ask the book from User B  
+
+
+### 部署
+1. 最原始的方式（人工） 
+git clone 代码到生产环境，手工pip安装依赖，手工启动 WSGI server，Nginx, Mysql
+
+2. 廖雪峰官网部署方式（自动化部署方案）
+使用 fabric、watchdog、supervisor
+
+3. 使用 ansible 等框架
