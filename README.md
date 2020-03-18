@@ -104,6 +104,27 @@ All we need to do is just writing the view functions to implement the transition
 git clone 代码到生产环境，手工pip安装依赖，手工启动 WSGI server，Nginx, Mysql
 
 2. 廖雪峰官网部署方式（自动化部署方案）
-使用 fabric、watchdog、supervisor
+使用 fabric、supervisor
 
 3. 使用 ansible 等框架
+
+注：Mysql Nginx 这些服务可以下载安装、也可以安装docker image
+
+### 后记
+1. 这个项目还是挺不错的，通过这个项目，对于MVC这种分层模型有了清晰的认识  
+2. flask、SQLAlchemy这些目前只能有浅显的认知，要想有更加深入的认识有两个途径
+   - 学习相关源码 flask、werkzeug源码
+     - 参与到 palletes 这个开源组织中
+     - 分享知识给更多的人，你能分享出去的知识才是你所掌握的知识
+     - 参与到一个公司级的基于flask的项目中
+     - 花部分时间阅读相关新闻
+     - 花部分时间阅读相关书籍（书籍再不必跟着做了，学习一下他们解决web问题的精髓即可） 
+   - 学习 SQLAlchemy，了解 ORM 模型，其实它就是个中间件
+   - 学习 flaks-login 等功能如何实现
+   - 最最重要的，学习其他优秀的框架
+     - ruby：ruby on rails，ruby china 开发的论坛
+     - php：bbs时代的老大，有多款成熟的产品 discuz!、wordpress
+     - Java：目前业内公认互联网时代最强 dubbo
+   - 微服务、serverless、中台 这些高大上的名词(dogface)，目前只了解 微服务这个 "银弹"(dogface 🐶)
+   
+完结撒花✿✿ヽ(°▽°)ノ✿
