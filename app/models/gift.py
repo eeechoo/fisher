@@ -47,3 +47,6 @@ class Gift(Base):
             ret[temp[1]] = temp[0]
 
         return ret
+
+    def is_yourself_gift(self, uid):
+        return uid == self.uid
